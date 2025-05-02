@@ -13,32 +13,29 @@ import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl transition-all duration-300">
+        <nav className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl transition-all duration-300 border-b-2 rounded-lg">
             <div className="px-6 py-3 bg-white/80  backdrop-blur-md shadow-lg rounded-xl">
                 <div className="flex items-center justify-between">
-                    {/* Logo Section */}
-                    <Link to="/" className="flex items-center space-x-2">
+                    <Link to="/" className="flex items-center space-x-2 hover:scale-105 transition duration-200">
                         <Briefcase className="h-6 w-6 text-blue-600" />
                         <span className="text-xl font-bold text-gray-800">Job<span className="text-blue-600">Nest</span></span>
                     </Link>
 
-                    <div className="hidden md:flex items-center flex-1 justify-center mx-4">
+                    <div className={`flex-1 flex justify-center ${user ? 'flex' : 'hidden md:flex'} items-center mx-4`}>
                         <Link to="/search" className="relative group ">
-                            <div className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-all duration-200">
+                            <div className="flex items-center space-x-2 px-4 py-2 bg-gray-100  hover:scale-102 hover:border-b-2 rounded-full transition-all duration-200 border-b-3">
                                 <Search size={18} className="text-gray-500 group-hover:text-blue-500" />
-                                <span className="text-gray-600 group-hover:text-blue-500">Search Jobs</span>
+                                <span className="text-gray-600 group-hover:text-blue-500 ">Search Jobs</span>
                             </div>
                         </Link>
                     </div>
 
                     <div className="flex items-center space-x-1 md:space-x-4">
-
                         <Link
                             to="/search"
-                            className="md:hidden flex items-center space-x-1 px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                            className="md:hidden flex items-center space-x-1 px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 "
                         >
                             <Search size={18} className="flex-shrink-0" />
                         </Link>
@@ -47,7 +44,7 @@ const Navbar = () => {
                             <>
                                 <Link
                                     to="/my-applications"
-                                    className="flex items-center space-x-1 px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                                    className="flex items-center space-x-1 px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 hover:scale-105"
                                 >
                                     <ClipboardList size={18} className="flex-shrink-0" />
                                     <span className="hidden md:inline">My Applications</span>

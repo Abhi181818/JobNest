@@ -83,7 +83,6 @@ const JobSearch = () => {
                 </div>
 
                 <div className="lg:flex gap-6">
-                    {/* Sidebar filters for larger screens, collapsible on mobile */}
                     <div className={`lg:w-1/4 transition-all duration-300 ${showFilters ? 'block' : 'hidden lg:block'}`}>
                         <div className={`bg-white rounded-lg shadow-md p-4 sticky top-4`}>
                             <div className="flex justify-between items-center mb-4">
@@ -100,7 +99,6 @@ const JobSearch = () => {
                                 </button>
                             </div>
 
-                            {/* Location Filter */}
                             <div className="mb-6">
                                 <h3 className={`text-${colorScheme.neutral}-700 font-medium mb-2 flex items-center`}>
                                     <MapPin size={16} className="mr-1" />
@@ -166,12 +164,12 @@ const JobSearch = () => {
                                     {filteredJobs.map((job, index) => (
                                         <div
                                             key={job.id}
-                                            className={`bg-white border-l-4 border-${colorScheme.primary}-500 rounded-lg shadow-md p-5 hover:shadow-lg transition-all duration-300`}
+                                            className={`bg-white border-l-4 border-${colorScheme.primary}-500 rounded-lg shadow-md p-5 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:border-b-2`}
                                         >
                                             <div className="flex items-center text-sm text-gray-500 mb-3">
-                                                <img src={job.imageUrl} alt="" className='className="h-6 w-6 rounded-full mr-2"' />
+                                                <img src={job.imageUrl} alt={job.company} className='className="h-6 w-6 rounded-full mr-2"' />
 
-                                                <span className="font-medium">{job.company}</span>
+                                                <span className="font-medium"> {job.company}</span>
                                             </div>
                                             <h3 className={`text-xl font-semibold text-${colorScheme.neutral}-900 mb-2`}>{job.title}</h3>
                                             <div className="flex items-center text-sm text-gray-500 mb-3">

@@ -29,7 +29,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-          <ToastContainer position="top-right" autoClose={3000} />
+          <ToastContainer autoClose={3000} />
         </div>
       </Router>
     </AuthContextProvider>
