@@ -161,7 +161,7 @@ const JobSearch = () => {
 
                             {filteredJobs.length > 0 ? (
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                                    {filteredJobs.map((job, index) => (
+                                    {filteredJobs.map((job) => (
                                         <div
                                             key={job.id}
                                             className={`bg-white border-l-4 border-${colorScheme.primary}-500 rounded-lg shadow-md p-5 hover:shadow-lg transition-all duration-300 hover:scale-105 hover:border-b-2`}
@@ -182,14 +182,9 @@ const JobSearch = () => {
                                                         {job.jobType}
                                                     </span>
                                                 )}
-                                                {job.experienceLevel && (
-                                                    <span className={`text-xs px-2 py-1 rounded-full bg-${colorScheme.secondary}-100 text-${colorScheme.secondary}-800`}>
-                                                        {job.experienceLevel}
-                                                    </span>
-                                                )}
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <p className={`text-${colorScheme.neutral}-700 font-bold`}>₹{job.salaryRange}</p>
+                                                <p className={`text-${colorScheme.neutral}-700 font-bold`}>₹{job.salaryRange} P.A.</p>
                                                 <Link
                                                     to={`/job/${job.id}`}
                                                     className={`py-2 px-4 bg-${colorScheme.primary}-600 hover:bg-${colorScheme.primary}-700 text-white rounded-md font-medium text-sm transition-colors duration-300`}
