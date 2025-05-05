@@ -8,7 +8,6 @@ import { LogIn, User, Lock, Mail, ArrowRight, Briefcase, CheckCircle } from 'luc
 const Login = () => {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
     const [loading, setLoading] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 

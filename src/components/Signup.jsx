@@ -33,7 +33,6 @@ const Signup = () => {
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row">
-            {/* Left panel */}
             <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 flex-col justify-center">
                 <div className="max-w-md mx-auto">
                     <div className="flex items-center mb-6">
@@ -61,7 +60,6 @@ const Signup = () => {
                 </div>
             </div>
 
-            {/* Right panel */}
             <div className="md:w-1/2 flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">

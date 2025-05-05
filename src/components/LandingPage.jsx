@@ -35,11 +35,6 @@ const LandingPage = () => {
                                 Discover opportunities with top employers to advance your career.
                             </p>
                             <div className="mt-6 flex">
-                                {/* <input
-                                    type="text"
-                                    placeholder="Search for jobs..."
-                                    className="px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
-                                /> */}
                                 <button
                                     onClick={handleSearch}
                                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r transition-colors duration-300 flex items-center rounded-md"
@@ -75,11 +70,17 @@ const LandingPage = () => {
                                 className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-b-2 transition-all duration-300"
                             >
                                 <div className="flex items-center text-sm text-gray-500 mb-2">
-                                    {/* <Briefcase size={16} className="mr-2 text-blue-500" /> */}
                                     <img src={job.imageUrl} alt={job.company} className="h-6 w-6 rounded-full mr-2" />
                                     <span>{job.company}</span>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-3">{job.title}</h3>
+                                <h3
+                                    className="text-lg font-semibold text-gray-900 mb-3 relative group"
+                                >
+                                    {job.title}
+                                    <span
+                                        className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"
+                                    ></span>
+                                </h3>
                                 <div className="flex items-center text-sm text-gray-500 mb-2">
                                     <MapPin size={16} className="mr-2 text-blue-500" />
                                     <span>{job.location}</span>
@@ -88,14 +89,23 @@ const LandingPage = () => {
                                     <IndianRupee size={16} className="mr-2 text-blue-500" />
                                     <span>{job.salaryRange}</span>
                                 </div>
-                                <div>
+                                {/* <div className="mb-4">
+                                    <ul className="list-disc list-inside text-sm text-gray-600">
+                                        {job.requiredSkills.map((skill, index) => (
+                                            <li key={index} className="bg-gray-100 px-2 py-1 rounded-md inline-block mr-2 mb-2">
+                                                {skill}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div> */}
+                                <div className='mb-4'>
                                     Total Applicants: {job.applications.length}
                                 </div>
                                 <Link
                                     to={`/job/${job.id}`}
-                                    className="flex bg-gray-100 hover:bg-gray-200 text-blue-600 font-medium py-2 px-4 rounded transition-colors duration-300 mt-auto"
+                                    className="flex bg-gray-100 hover:bg-blue-600 hover:text-white text-blue-600 font-medium py-2 px-4 rounded transition-all duration-300 mt-auto shadow-md hover:shadow-lg"
                                 >
-                                    <Info size={16} className='mr-9 mt-1' />
+                                    <Info size={16} className='mr-2 mt-1' />
                                     View Details
                                 </Link>
                             </div>
@@ -113,7 +123,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

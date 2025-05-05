@@ -25,6 +25,7 @@ const JobSearch = () => {
             try {
                 const response = await axios.get('http://localhost:8080/api/jobs');
                 setJobs(response.data);
+                console.log(response.data[0].requiredSkills);
             } catch (error) {
                 console.error("Error fetching jobs:", error);
                 setJobs([]);
@@ -153,10 +154,16 @@ const JobSearch = () => {
                                         >
                                             <div className="flex items-center text-sm text-gray-500 mb-3">
                                                 <img src={job.imageUrl} alt={job.company} className='className="h-6 w-6 rounded-full mr-2"' />
-
                                                 <span className="font-medium"> {job.company}</span>
                                             </div>
-                                            <h3 className={`text-xl font-semibold text-${colorScheme.neutral}-900 mb-2`}>{job.title}</h3>
+                                            <h3
+                                                className={`text-xl font-semibold text-${colorScheme.neutral}-900 mb-2 relative group`}
+                                            >
+                                                {job.title}
+                                                <span
+                                                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"
+                                                ></span>
+                                            </h3>
                                             <div className="flex items-center text-sm text-gray-500 mb-3">
                                                 <MapPin className={`mr-1 text-${colorScheme.primary}-500`} size={16} />
                                                 <span>{job.location}</span>
@@ -168,12 +175,20 @@ const JobSearch = () => {
                                                     </span>
                                                 )}
                                             </div>
+                                            <div className="mb-4">
+                                                <ul className="list-disc list-inside text-sm text-gray-600">
+                                                    {job.requiredSkills.map((skill, index) => (
+                                                        <li key={index} className="bg-gray-100 px-2 py-1 rounded-md inline-block mr-2 mb-2">
+                                                            {skill}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                             <div>
                                                 Total Applicants: {job.applications.length}
                                             </div>
                                             <div className="flex items-center justify-between">
                                                 <p className={`text-${colorScheme.neutral}-700 font-bold`}>₹{job.salaryRange} P.A.</p>
-
                                                 <Link
                                                     to={`/job/${job.id}`}
                                                     className={`py-2 px-4 bg-${colorScheme.primary}-600 hover:bg-${colorScheme.primary}-700 text-white rounded-md font-medium text-sm transition-colors duration-300`}

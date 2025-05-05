@@ -102,9 +102,18 @@ const JobDetails = () => {
                             Job Description
                         </h2>
                         <p className="text-gray-700 whitespace-pre-line leading-relaxed">{job.description}</p>
+                        <div className="mb-4">
+                            <h4 className="text-gray-700 font-medium mb-2">Required Skills:</h4>
+                            <ul className="list-disc list-inside text-sm text-gray-600">
+                                {job.requiredSkills.map((skill, index) => (
+                                    <li key={index} className="bg-gray-100 px-2 py-1 rounded-md inline-block mr-2 mb-2">
+                                        {skill}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                         Total Applicants: {job.applications.length}
                     </div>
-
 
                     <div className="bg-blue-50 p-6 sm:p-8 rounded-2xl shadow-inner">
                         <h2 className="text-xl font-semibold text-gray-800 mb-6">Apply for this Job</h2>
