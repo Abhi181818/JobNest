@@ -183,8 +183,12 @@ const JobSearch = () => {
                                                     </span>
                                                 )}
                                             </div>
+                                            <div>
+                                                Total Applicants: {job.applications.length}
+                                            </div>
                                             <div className="flex items-center justify-between">
                                                 <p className={`text-${colorScheme.neutral}-700 font-bold`}>₹{job.salaryRange} P.A.</p>
+
                                                 <Link
                                                     to={`/job/${job.id}`}
                                                     className={`py-2 px-4 bg-${colorScheme.primary}-600 hover:bg-${colorScheme.primary}-700 text-white rounded-md font-medium text-sm transition-colors duration-300`}

@@ -102,9 +102,10 @@ const JobDetails = () => {
                             Job Description
                         </h2>
                         <p className="text-gray-700 whitespace-pre-line leading-relaxed">{job.description}</p>
+                        Total Applicants: {job.applications.length}
                     </div>
 
-                    {/* Apply Form */}
+
                     <div className="bg-blue-50 p-6 sm:p-8 rounded-2xl shadow-inner">
                         <h2 className="text-xl font-semibold text-gray-800 mb-6">Apply for this Job</h2>
                         <form onSubmit={handleApply} className="space-y-6">

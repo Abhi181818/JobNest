@@ -88,6 +88,9 @@ const LandingPage = () => {
                                     <IndianRupee size={16} className="mr-2 text-blue-500" />
                                     <span>{job.salaryRange}</span>
                                 </div>
+                                <div>
+                                    Total Applicants: {job.applications.length}
+                                </div>
                                 <Link
                                     to={`/job/${job.id}`}
                                     className="flex bg-gray-100 hover:bg-gray-200 text-blue-600 font-medium py-2 px-4 rounded transition-colors duration-300 mt-auto"
