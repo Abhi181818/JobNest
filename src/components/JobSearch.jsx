@@ -34,25 +34,10 @@ const JobSearch = () => {
     }, []);
 
     const handleFilterChange = (filterType, value) => {
-        if (Array.isArray(filters[filterType])) {
-            if (filters[filterType].includes(value)) {
-                setFilters({
-                    ...filters,
-                    [filterType]: filters[filterType].filter(item => item !== value)
-                });
-            } else {
-                setFilters({
-                    ...filters,
-                    [filterType]: [...filters[filterType], value]
-                });
-            }
-        } else {
-            // For radio buttons and selects (strings)
-            setFilters({
-                ...filters,
-                [filterType]: value
-            });
-        }
+        setFilters((prevFilters) => ({
+            ...prevFilters,
+            [filterType]: value,
+        }));
     };
 
     const clearFilters = () => {

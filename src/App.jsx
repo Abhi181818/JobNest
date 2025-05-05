@@ -15,23 +15,21 @@ import './App.css';
 function App() {
   return (
     <AuthContextProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Navbar />
-          <div className="pt-20">
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/search" element={<JobSearch />} />
-              <Route path="/job/:id" element={<JobDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/my-applications" element={<MyApplications />} />
-            </Routes>
-          </div>
-          <Footer />
-          <ToastContainer autoClose={3000} />
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <div className="pt-20">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/search" element={<JobSearch />} />
+            <Route path="/job/:id" element={<JobDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/my-applications" element={<MyApplications />} />
+          </Routes>
         </div>
-      </Router>
+        <Footer />
+        <ToastContainer autoClose={3000} />
+      </div>
     </AuthContextProvider>
   );
 }

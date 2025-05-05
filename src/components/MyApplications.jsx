@@ -51,6 +51,10 @@ const MyApplications = () => {
         fetchApplications();
     }, [user, navigate]);
 
+    const handleFilterChange = (filterType) => {
+        setFilter(filterType);
+    };
+
     const filteredApplications = applications.filter((application) => {
         if (filter === 'all') return true;
         if (filter === 'pending') return application.status === 'Pending';
@@ -109,7 +113,7 @@ const MyApplications = () => {
 
                 <div className="mb-8 flex justify-center space-x-4">
                     <button
-                        onClick={() => setFilter('all')}
+                        onClick={() => handleFilterChange('all')}
                         className={`px-4 py-2 rounded-full font-medium transition-all duration-200 flex items-center ${filter === 'all'
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow'
@@ -119,7 +123,7 @@ const MyApplications = () => {
                         All Applications
                     </button>
                     <button
-                        onClick={() => setFilter('pending')}
+                        onClick={() => handleFilterChange('pending')}
                         className={`px-4 py-2 rounded-full font-medium transition-all duration-200 flex items-center ${filter === 'pending'
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow'
@@ -129,7 +133,7 @@ const MyApplications = () => {
                         Pending
                     </button>
                     <button
-                        onClick={() => setFilter('completed')}
+                        onClick={() => handleFilterChange('completed')}
                         className={`px-4 py-2 rounded-full font-medium transition-all duration-200 flex items-center ${filter === 'completed'
                             ? 'bg-blue-600 text-white shadow-md'
                             : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow'
